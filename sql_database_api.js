@@ -106,16 +106,18 @@ app.get('/select/:super/:superadmin', (req, res) => {
         }
 )
 
-app.get('/insert/:superadmin', (req, res) => {
+app.post('/insert/:superadmin', (req, res) => {
 
     $request1 = req.params.superadmin;
     $request2 = req.query.id;
     $request3 = req.query.username;
     $request4 = req.query.ip_addr;
     $request5 = req.query.device;
+    $request6 = req.query.country;
 
-    let sql = "INSERT INTO "+$request1+"(id, username, ip_addr, device) VALUES("+$request2+",'"+$request3+"','"
-    +$request4+"','"+$request5+"')";
+
+    let sql = "INSERT INTO "+$request1+"(id, username, ip_addr, device, country) VALUES("+$request2+",'"+$request3+"','"
+    +$request4+"','"+$request5+"','"+$request6+"')";
     db.query(sql, (err, result) =>{
             if (err) {console.log(err);
             res.send(err);}
@@ -128,14 +130,16 @@ app.get('/insert/:superadmin', (req, res) => {
         }
 )
 
-app.get('/modify/:superadmin', (req, res) => {
+app.put('/modify/:superadmin', (req, res) => {
 
     $request1 = req.params.superadmin;
     $request2 = req.query.id;
     $request4 = req.query.ip_addr;
     $request5 = req.query.device;
+    $request6 = req.query.country;
 
-    let sql = "UPDATE "+ $request1 +" SET ip_addr = '"+$request4+"' , device = '"+$request5+"' WHERE id = "+$request2+";";
+
+    let sql = "UPDATE "+ $request1 +" SET ip_addr = '"+$request4+"' , device = '"+$request5+"',country='"+$request6+"' WHERE id = "+$request2+";";
     db.query(sql, (err, result) =>{
             if (err) 
             {console.log(err);
@@ -153,10 +157,6 @@ app.get('/modify/:superadmin', (req, res) => {
   
 
 
-app.post('/insertSadmin',(req,res)=>
-{
-
-})
 
 app.listen('8000', () => {
     console.log('Server started on port 8000');
