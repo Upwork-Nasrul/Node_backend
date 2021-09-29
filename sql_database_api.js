@@ -2,21 +2,21 @@ const express = require('express');
 const mysql = require('mysql');
 
 
-var db = mysql.createConnection({
-    host: "127.0.0.1",
-    user: "root",
-    password: "",
-    database: "Nodemysql"
-});
+// var db = mysql.createConnection({
+//     host: "127.0.0.1",
+//     user: "root",
+//     password: "",
+//     database: "Nodemysql"
+// });
 
-db.connect(function (err) {
-    if (err) throw err;
-    console.log("Connected!");
-    // db.query("CREATE DATABASE mydb", function (err, result) {
-    //   if (err) throw err;
-    //   console.log("Database created");
-    // });
-});
+// db.connect(function (err) {
+//     if (err) throw err;
+//     console.log("Connected!");
+//     // db.query("CREATE DATABASE mydb", function (err, result) {
+//     //   if (err) throw err;
+//     //   console.log("Database created");
+//     // });
+// });
 
 const app = express();
 
